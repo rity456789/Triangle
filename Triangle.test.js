@@ -35,3 +35,11 @@ test("should specify equilateral triangle", () => {
   const triangle = new Triangle(p1, p2, p3);
   expect(triangle.getType()).toBe(triangleType.EQUILATERAL);
 });
+
+test("should specify right_isosceles triangle", () => {
+  const p1 = new Point(0, 0);
+  const p2 = new Point(3, 0);
+  const p3 = new Point(0, 3);
+  const triangle = new Triangle(p1, p2, p3);
+  expect(triangle.getType()).toBe(triangleType.RIGHT_ISOSCELES);
+});
