@@ -59,3 +59,11 @@ test("should specify right triangle", () => {
   const triangle = new Triangle(p1, p2, p3);
   expect(triangle.getType()).toBe(triangleType.RIGHT);
 });
+
+test("should specify normal triangle", () => {
+  const p1 = new Point(0, 0);
+  const p2 = new Point(1, 2);
+  const p3 = new Point(1, -3);
+  const triangle = new Triangle(p1, p2, p3);
+  expect(triangle.getType()).toBe(triangleType.NORMAL);
+});
