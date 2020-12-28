@@ -51,3 +51,11 @@ test("should specify isosceles triangle", () => {
   const triangle = new Triangle(p1, p2, p3);
   expect(triangle.getType()).toBe(triangleType.ISOSCELES);
 });
+
+test("should specify right triangle", () => {
+  const p1 = new Point(0, 0);
+  const p2 = new Point(2, 0);
+  const p3 = new Point(0, 9);
+  const triangle = new Triangle(p1, p2, p3);
+  expect(triangle.getType()).toBe(triangleType.RIGHT);
+});
