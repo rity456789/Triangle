@@ -17,7 +17,7 @@ test("should specify not a triangle because one of edges equals zero", () => {
   const p2 = new Point(1, 2);
   const p3 = new Point(3, 3);
   const triangle = new Triangle(p1, p2, p3);
-  expect(triangle.getType()).toBe(triangleType.NOT_A_TRIANGLE);
+  expect(triangle.type).toBe(triangleType.NOT_A_TRIANGLE);
 });
 
 test("should specify not a triangle because edges are on one line", () => {
@@ -25,7 +25,7 @@ test("should specify not a triangle because edges are on one line", () => {
   const p2 = new Point(2, 4);
   const p3 = new Point(3, 6);
   const triangle = new Triangle(p1, p2, p3);
-  expect(triangle.getType()).toBe(triangleType.NOT_A_TRIANGLE);
+  expect(triangle.type).toBe(triangleType.NOT_A_TRIANGLE);
 });
 
 test("should specify equilateral triangle", () => {
@@ -33,7 +33,7 @@ test("should specify equilateral triangle", () => {
   const p2 = new Point(2, 0);
   const p3 = new Point(1, 1.732);
   const triangle = new Triangle(p1, p2, p3);
-  expect(triangle.getType()).toBe(triangleType.EQUILATERAL);
+  expect(triangle.type).toBe(triangleType.EQUILATERAL);
 });
 
 test("should specify right_isosceles triangle", () => {
@@ -41,7 +41,7 @@ test("should specify right_isosceles triangle", () => {
   const p2 = new Point(3, 0);
   const p3 = new Point(0, 3);
   const triangle = new Triangle(p1, p2, p3);
-  expect(triangle.getType()).toBe(triangleType.RIGHT_ISOSCELES);
+  expect(triangle.type).toBe(triangleType.RIGHT_ISOSCELES);
 });
 
 test("should specify isosceles triangle", () => {
@@ -49,7 +49,7 @@ test("should specify isosceles triangle", () => {
   const p2 = new Point(2, 0);
   const p3 = new Point(1, 2);
   const triangle = new Triangle(p1, p2, p3);
-  expect(triangle.getType()).toBe(triangleType.ISOSCELES);
+  expect(triangle.type).toBe(triangleType.ISOSCELES);
 });
 
 test("should specify right triangle", () => {
@@ -57,7 +57,7 @@ test("should specify right triangle", () => {
   const p2 = new Point(2, 0);
   const p3 = new Point(0, 9);
   const triangle = new Triangle(p1, p2, p3);
-  expect(triangle.getType()).toBe(triangleType.RIGHT);
+  expect(triangle.type).toBe(triangleType.RIGHT);
 });
 
 test("should specify normal triangle", () => {
@@ -65,5 +65,13 @@ test("should specify normal triangle", () => {
   const p2 = new Point(1, 2);
   const p3 = new Point(1, -3);
   const triangle = new Triangle(p1, p2, p3);
-  expect(triangle.getType()).toBe(triangleType.NORMAL);
+  expect(triangle.type).toBe(triangleType.NORMAL);
+});
+
+test("should get perimeter of not a triangle equal -1", () => {
+  const p1 = new Point(1, 2);
+  const p2 = new Point(1, 2);
+  const p3 = new Point(3, 0);
+  const triangle = new Triangle(p1, p2, p3);
+  expect(triangle.getPerimeter()).toBe(-1);
 });
