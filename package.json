@@ -2,7 +2,7 @@
   "name": "BTVN6",
   "version": "1.0.0",
   "description": "",
-  "main": "Diem.js",
+  "main": "Triangle.js",
   "scripts": {
     "test": "jest"
   },
