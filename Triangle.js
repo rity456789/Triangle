@@ -49,7 +49,7 @@ class Triangle {
 }
 
 function isRight(edge1, edge2, edge3) {
-  return Math.abs(edge3 * edge3 - edge1 * edge1 + edge2 * edge2) < epsilon;
+  return Math.abs(edge3 * edge3 - edge1 * edge1 - edge2 * edge2) < epsilon;
 }
 
 function isIsosceles(edge1, edge2, edge3) {

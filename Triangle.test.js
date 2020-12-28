@@ -78,8 +78,8 @@ test("should get perimeter of not a triangle equal -1", () => {
 
 test("should get perimeter of any triangle", () => {
   const p1 = new Point(0, 0);
-  const p2 = new Point(3, 0);
+  const p2 = new Point(4, 0);
   const p3 = new Point(0, 3);
   const triangle = new Triangle(p1, p2, p3);
-  expect(triangle.getPerimeter()).toBe(4.5);
+  expect(triangle.getPerimeter()).toBe(12);
 });
