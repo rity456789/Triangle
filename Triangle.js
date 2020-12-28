@@ -6,7 +6,7 @@ const triangleType = {
   NORMAL: "NORMAL",
   NOT_A_TRIANGLE: "NOT_A_TRIANGLE",
 };
-
+const epsilon = 0.0001;
 class Triangle {
   constructor(point1, point2, point3) {
     this.point1 = point1;
@@ -26,10 +26,10 @@ class Triangle {
     if (edge3 >= edge1 + edge2) {
       return triangleType.NOT_A_TRIANGLE;
     }
-    if (edge1 == edge2 && edge2 == edge3) {
+    if (isEquilateral(edge1, edge2, edge3)) {
       return triangleType.EQUILATERAL;
     }
-    if (edge1 == edge2 || edge2 == edge3) {
+    if (isIsosceles(edge1, edge2, edge3)) {
       if (isRight(edge1, edge2, edge3)) return triangleType.RIGHT_ISOSCELES;
       return triangleType.ISOSCELES;
     }
@@ -49,7 +49,15 @@ class Triangle {
 }
 
 function isRight(edge1, edge2, edge3) {
-  return edge3 * edge3 == edge1 * edge1 + edge2 * edge2;
+  return Math.abs(edge3 * edge3 - edge1 * edge1 + edge2 * edge2) < epsilon;
+}
+
+function isIsosceles(edge1, edge2, edge3) {
+  return Math.abs(edge1 - edge2) < epsilon || Math.abs(edge2 - edge3) < epsilon;
+}
+
+function isEquilateral(edge1, edge2, edge3) {
+  return Math.abs(edge1 - edge2) < epsilon && Math.abs(edge2 - edge3) < epsilon;
 }
 
 function distance(point1, point2) {
@@ -57,3 +65,10 @@ function distance(point1, point2) {
   const y = point1.y - point2.y;
   return Math.sqrt(x * x + y * y);
 }
+
+module.exports = {
+  Triangle: Triangle,
+  epsilon: epsilon,
+  triangleType: triangleType,
+  distance: distance,
+};
