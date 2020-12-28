@@ -20,10 +20,7 @@ class Triangle {
       distance(this.point1, this.point3),
       distance(this.point2, this.point3),
     ].sort((a, b) => a - b);
-    if (edge1 <= 0 || edge2 <= 0 || edge3 <= 0) {
-      return triangleType.NOT_A_TRIANGLE;
-    }
-    if (edge3 >= edge1 + edge2) {
+    if (isNotATriangle(edge1, edge2, edge3)) {
       return triangleType.NOT_A_TRIANGLE;
     }
     if (isEquilateral(edge1, edge2, edge3)) {
@@ -46,6 +43,10 @@ class Triangle {
       distance(this.point2, this.point3)
     );
   }
+}
+
+function isNotATriangle(edge1, edge2, edge3) {
+  return edge1 <= 0 || edge2 <= 0 || edge3 <= 0 || edge3 >= edge1 + edge2;
 }
 
 function isRight(edge1, edge2, edge3) {
